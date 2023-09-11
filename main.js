@@ -13,7 +13,12 @@ const apenasImpares = randomNumbers.filter((numero) => {
   return numero % 2 !== 0;
 })
 
-console.log(apenasImpares);
+// Resolução do professor:
+
+const oddNumbers = randomNumbers.filter((randomNumber) => {
+  return randomNumber % 2 === 1;
+});
+
 
 /*
   02
@@ -28,7 +33,21 @@ const under501 = crazyNumbers.filter((numero) => {
 
 })
 
-console.log(under501.length);
+console.log(` Há ${under501.length} números, abaixo de 501`);
+console.log(' ');
+
+// Resolução do professor:
+
+const numbersLessThan501 = crazyNumbers.reduce((acc, crazyNumber) => {
+  if (crazyNumber < 501) {
+    return acc + 1;
+  }
+
+  return acc;
+}, 0)
+
+console.log(` Há ${numbersLessThan501} números, abaixo de 501`);
+console.log(' ');
 
 /*
   03
@@ -46,6 +65,7 @@ const exponentiation = numbers.map((number) => {
 })
 
 console.log(exponentiation);
+console.log(' ');
 
 /*
   04
