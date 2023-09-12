@@ -33,9 +33,6 @@ const under501 = crazyNumbers.filter((numero) => {
 
 })
 
-console.log(` Há ${under501.length} números, abaixo de 501`);
-console.log(' ');
-
 // Resolução do professor:
 
 const numbersLessThan501 = crazyNumbers.reduce((acc, crazyNumber) => {
@@ -46,8 +43,8 @@ const numbersLessThan501 = crazyNumbers.reduce((acc, crazyNumber) => {
   return acc;
 }, 0)
 
-console.log(` Há ${numbersLessThan501} números, abaixo de 501`);
-console.log(' ');
+const numbersLessThan501_2 = crazyNumbers.reduce((acc, crazyNumber) => crazyNumber < 501 ? acc + 1 : acc, 0)
+
 
 /*
   03
@@ -64,8 +61,9 @@ const exponentiation = numbers.map((number) => {
   return number ** 2;
 })
 
-console.log(exponentiation);
-console.log(' ');
+
+// Resolução do professor:
+const squareNumbers = numbers.map((number) => number ** 2);
 
 /*
   04
@@ -92,7 +90,17 @@ const before2000 = tarantinoMovies.filter((movie) => {
   return movie.release < 2000;
 })
 
-console.log(before2000);
+
+// Resolução do professor:
+
+const moviesBefore2000 = tarantinoMovies.filter(tarantinoMovie => tarantinoMovie.release < 2000);
+
+
+// Resolução do professor com destructuring assignment:
+
+const moviesBefore2000_2 = tarantinoMovies.filter(({ release }) => release < 2000);
+
+
 
 /*
   05
@@ -112,11 +120,12 @@ const tvShows = [
 ]
 
 const seriesNames = tvShows.map((tvShow) => {
-  return { name: tvShow.name };
+  return tvShow.name;
 
 })
 
-console.log(seriesNames);
+const showNames = tvShows.map(({ name }) => name);
+// const showNames = tvShows.map(tvShow => tvShow.name);
 
 /*
   06
@@ -139,10 +148,20 @@ const cart = [
 
 const gameNames = cart.map((game) => {
   return `
-- ${game.name}`;
+- ${game.name.join(' ')}`;
 })
 
-console.log(gameNames.join(' '));
+console.log(gameNames);
+console.log(' ');
+
+// Resolução do professor:
+
+const productList = cart.reduce((acc, { name }) => `${acc}- ${name}\n`, '');
+// const productList = cart.reduce((acc, product) => {
+//   return `${acc}- ${product.name}\n`
+// }, '');
+
+console.log(productList);
 
 /*
 - Nome 1
